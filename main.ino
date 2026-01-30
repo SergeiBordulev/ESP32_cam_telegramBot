@@ -120,7 +120,7 @@ void setup() {
   esp_err_t err = esp_camera_init(&config);
   sensor_t *s = esp_camera_sensor_get();
   if (s) {
-    s->set_hmirror(s, 0);   // 0 = выкл зеркалирование по горизонтали
+    s->set_hmirror(s, 1);   // 0 = выкл зеркалирование по горизонтали
     s->set_vflip(s, 0);    // 0 = без вертикального переворота
   }
   if (err != ESP_OK) {
