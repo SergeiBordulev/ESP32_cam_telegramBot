@@ -133,7 +133,7 @@ void setup() {
 
 // ===== LOOP =====
 void loop() {
-  if (millis() - lastUpdate > 2000) {
+  if (millis() - lastUpdate > 60000) { // each minute
     Serial.println("[BOT] Checking updates...");
     int numNewMessages = bot.getUpdates(offset);
     Serial.printf("[BOT] Updates received: %d\n", numNewMessages);
@@ -148,7 +148,7 @@ void loop() {
       if (text == "/photo") {
         Serial.println("[CMD] /photo");
 
-        bot.sendMessage(chat_id, "📸 Делаю фото...", "");
+        bot.sendMessage(chat_id, "📸 Waiting make a photo...", "");
 
         Serial.println("[CAM] Capturing frame...");
         globalFb = esp_camera_fb_get();
